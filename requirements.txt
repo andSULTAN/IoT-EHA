@@ -1,0 +1,21 @@
+# IoT-Shield Guard — Dependencies
+# =================================
+
+# Core ML
+scikit-learn>=1.3.0
+joblib>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# GUI (Trainer)
+PyQt6>=6.5.0
+matplotlib>=3.7.0
+
+# Telegram Bot
+aiogram>=3.4.0
+
+# Network Sniffing
+scapy>=2.5.0
+
+# HTTP requests (Telegram fallback)
+requests>=2.31.0

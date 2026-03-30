@@ -1,0 +1,338 @@
+10:23:59 | IoT-Shield.Guard       | INFO    | 
+10:23:59 | IoT-Shield.Guard       | INFO    | ╔══════════════════════════════════════════════════╗
+10:23:59 | IoT-Shield.Guard       | INFO    | ║        🛡️  IoT-Shield Guard v1.0.0               ║
+10:23:59 | IoT-Shield.Guard       | INFO    | ║        Real-time Network Intrusion Detection     ║
+10:23:59 | IoT-Shield.Guard       | INFO    | ║        Telegram Bot + AI Engine                  ║
+10:23:59 | IoT-Shield.Guard       | INFO    | ╚══════════════════════════════════════════════════╝
+10:23:59 | IoT-Shield.Guard       | INFO    | 
+10:23:59 | IoT-Shield.Guard       | INFO    |    📡 Platforma:   Windows
+10:23:59 | IoT-Shield.Guard       | INFO    |  🔑 Admin: ✅ Ha
+10:23:59 | IoT-Shield.Guard       | INFO    |    🔥 Firewall:    netsh
+10:23:59 | IoT-Shield.Guard       | INFO    |    🌐 Interface:   barcha
+10:23:59 | IoT-Shield.Guard       | INFO    |    📊 Threshold:   60%
+10:23:59 | IoT-Shield.Guard       | INFO    | 
+10:23:59 | IoT-Shield.Detector    | INFO    | 📦 Model yuklanmoqda...
+10:24:05 | IoT-Shield.Detector    | INFO    |    ├── Model: iot_shield_sgd_20260326_094108.pkl
+10:24:05 | IoT-Shield.Detector    | INFO    |    ├── Scaler: scaler_20260326_094108.pkl
+10:24:05 | IoT-Shield.Detector    | INFO    |    ├── Encoder: label_encoder_20260326_094108.pkl
+10:24:05 | IoT-Shield.Detector    | INFO    |    ├── Klasslar: 34
+10:24:05 | IoT-Shield.Detector    | INFO    |    ├── Features: 37
+10:24:05 | IoT-Shield.Detector    | INFO    |    └── O'qitilgan: 45,019,243 qator
+10:24:05 | IoT-Shield.Guard       | INFO    | ✅ AI Model yuklandi
+10:24:05 | IoT-Shield.Guard       | INFO    | 
+10:24:05 | IoT-Shield.Guard       | INFO    | 🚀 IoT-Shield Guard ishga tushmoqda...
+10:24:05 | IoT-Shield.Guard       | INFO    | ──────────────────────────────────────────────────
+10:24:07 | IoT-Shield.Detector    | INFO    | 
+10:24:07 | IoT-Shield.Detector    | INFO    | ╔══════════════════════════════════════════╗
+10:24:07 | IoT-Shield.Detector    | INFO    | ║  🧠 AI Detection Engine — ishga tushdi    ║
+10:24:07 | IoT-Shield.Detector    | INFO    | ╚══════════════════════════════════════════╝
+10:24:07 | IoT-Shield.Detector    | INFO    |    ├── Interface:  barcha
+10:24:07 | IoT-Shield.Detector    | INFO    |    ├── Threshold:  60%
+10:24:07 | IoT-Shield.Detector    | INFO    |    ├── Klasslar:   34
+10:24:07 | IoT-Shield.Detector    | INFO    |    └── Bot:        ✅ Ulangan
+10:24:07 | IoT-Shield.Detector    | INFO    | 
+10:24:07 | IoT-Shield.Detector    | INFO    | 🔍 Tarmoq kuzatilmoqda... (Ctrl+C to'xtatish)
+10:24:07 | IoT-Shield.Detector    | INFO    | ──────────────────────────────────────────────────
+10:24:07 | IoT-Shield.Bot         | INFO    | 🤖 Telegram Bot ishga tushdi
+10:24:07 | IoT-Shield.Bot         | INFO    |    Platforma: Windows
+10:24:07 | IoT-Shield.Bot         | INFO    |    Admin: True
+10:24:07 | aiogram.dispatcher     | INFO    | Start polling
+10:24:08 | aiogram.dispatcher     | INFO    | Run polling for bot @aniqlovchiaibot id=8789775060 - 'Aniqlovchi AI'
+10:24:08 | IoT-Shield.Bot         | WARNING | Chat ID aniqlanmagan — /start buyrug'ini yuboring
+10:24:08 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.197   → 142.251.38.74   | Ishonch: 100.0% | Pkt: 17
+10:24:28 | aiogram.event          | INFO    | Update id=625431057 is handled. Duration 331 ms by bot id=8789775060
+10:24:37 | IoT-Shield.Bot         | INFO    | 🔍 ARP Scan: 192.168.56.0/24
+10:24:41 | aiogram.event          | INFO    | Update id=625431058 is handled. Duration 3533 ms by bot id=8789775060
+10:24:41 | IoT-Shield.Detector    | INFO    | ✅ Normal | Pkt: 14 | Jami: 30 | Hujumlar: 1
+10:24:49 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 87.250.251.119  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 17
+10:24:49 | aiogram.event          | INFO    | Update id=625431059 is handled. Duration 144 ms by bot id=8789775060
+10:24:59 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MITM-ARPSPOOFING               | IP: 216.239.32.223  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 14
+10:25:15 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-PSHACK_FLOOD              | IP: 216.239.32.223  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 14
+10:25:17 | IoT-Shield.Detector    | INFO    | ✅ Normal | Pkt: 4 | Jami: 60 | Hujumlar: 4
+10:25:29 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.197   → 149.154.166.110 | Ishonch: 100.0% | Pkt: 16
+10:25:40 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 149.154.166.110 → 192.168.0.197   | Ishonch: 100.0% | Pkt: 15
+10:25:50 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 216.58.209.170  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 21
+10:25:53 | IoT-Shield.Detector    | INFO    | ✅ Normal | Pkt: 5 | Jami: 90 | Hujumlar: 7
+10:26:05 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 208.115.231.154 → 192.168.0.197   | Ishonch: 100.0% | Pkt: 14
+10:26:06 | aiogram.event          | INFO    | Update id=625431060 is handled. Duration 182 ms by bot id=8789775060
+10:26:10 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.197   → 93.158.134.242  | Ishonch: 100.0% | Pkt: 15
+10:26:26 | IoT-Shield.Bot         | INFO    | 🔍 ARP Scan: 192.168.56.0/24
+10:26:28 | IoT-Shield.Detector    | INFO    | ✅ Normal | Pkt: 6 | Jami: 120 | Hujumlar: 9
+10:26:30 | aiogram.event          | INFO    | Update id=625431061 is handled. Duration 3526 ms by bot id=8789775060
+10:26:30 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.197   → 149.154.167.41  | Ishonch: 100.0% | Pkt: 19
+10:26:40 | aiogram.event          | INFO    | Update id=625431062 is not handled. Duration 314 ms by bot id=8789775060
+10:26:40 | aiogram.event          | ERROR   | Cause exception while process update id=625431062 by bot id=8789775060
+TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 61
+Traceback (most recent call last):
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "A:\3. Dissertatsiya\AI Project\bot_handler.py", line 555, in callback_unblock
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\methods\base.py", line 82, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\client\bot.py", line 488, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\client\session\aiohttp.py", line 177, in make_request
+    response = self.check_response(
+        bot=bot,
+    ...<2 lines>...
+        content=raw_result,
+    )
+  File "C:\Users\MS\AppData\Roaming\Python\Python314\site-packages\aiogram\client\session\base.py", line 121, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 61
+10:26:46 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MITM-ARPSPOOFING               | IP: 213.180.193.234 → 192.168.0.197   | Ishonch: 80.1% | Pkt: 12
+10:26:57 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.197   → 149.154.167.41  | Ishonch: 100.0% | Pkt: 15
+10:27:02 | IoT-Shield.Detector    | INFO    | ✅ Normal | Pkt: 12 | Jami: 150 | Hujumlar: 12
+10:27:03 | aiogram.dispatcher     | INFO    | Polling stopped
+10:27:03 | IoT-Shield.Detector    | INFO    | 
+10:27:03 | IoT-Shield.Detector    | INFO    | 🛑 Detection Engine to'xtatildi
+10:27:03 | IoT-Shield.Detector    | INFO    |    ├── Jami paketlar: 2,447
+10:27:03 | IoT-Shield.Detector    | INFO    |    ├── Bashoratlar:   150
+10:27:03 | IoT-Shield.Detector    | INFO    |    ├── Hujumlar:      12
+10:27:03 | IoT-Shield.Detector    | INFO    |    └── Bloklangan:    8
+10:27:03 | IoT-Shield.Guard       | INFO    | 🛑 IoT-Shield Guard to'xtatildi
+10:27:03 | aiogram.dispatcher     | INFO    | Polling stopped for bot @aniqlovchiaibot id=8789775060 - 'Aniqlovchi AI'
+11:52:47 | IoT-Shield.Guard       | INFO    | 
+11:52:47 | IoT-Shield.Guard       | INFO    | ╔══════════════════════════════════════════════════╗
+11:52:47 | IoT-Shield.Guard       | INFO    | ║        🛡️  IoT-Shield Guard v1.0.0               ║
+11:52:47 | IoT-Shield.Guard       | INFO    | ║        Real-time Network Intrusion Detection     ║
+11:52:47 | IoT-Shield.Guard       | INFO    | ║        Telegram Bot + AI Engine                  ║
+11:52:47 | IoT-Shield.Guard       | INFO    | ╚══════════════════════════════════════════════════╝
+11:52:47 | IoT-Shield.Guard       | INFO    | 
+11:52:47 | IoT-Shield.Guard       | INFO    |    📡 Platforma:   Windows
+11:52:47 | IoT-Shield.Guard       | INFO    |  🔑 Admin: ✅ Ha
+11:52:47 | IoT-Shield.Guard       | INFO    |    🔥 Firewall:    netsh
+11:52:47 | IoT-Shield.Guard       | INFO    |    🌐 Interface:   barcha
+11:52:47 | IoT-Shield.Guard       | INFO    |    📊 Threshold:   60%
+11:52:47 | IoT-Shield.Guard       | INFO    | 
+11:52:47 | IoT-Shield.Detector    | INFO    | 📦 Model yuklanmoqda...
+11:52:53 | IoT-Shield.Detector    | INFO    |    ├── Model: iot_shield_sgd_20260326_094108.pkl
+11:52:53 | IoT-Shield.Detector    | INFO    |    ├── Scaler: scaler_20260326_094108.pkl
+11:52:53 | IoT-Shield.Detector    | INFO    |    ├── Encoder: label_encoder_20260326_094108.pkl
+11:52:53 | IoT-Shield.Detector    | INFO    |    ├── Klasslar: 34
+11:52:53 | IoT-Shield.Detector    | INFO    |    ├── Features: 37
+11:52:53 | IoT-Shield.Detector    | INFO    |    └── O'qitilgan: 45,019,243 qator
+11:52:56 | IoT-Shield.Detector    | INFO    | 🛡️ Safe List: 11 ta IP qo'shildi
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 0.0.0.0
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 1.0.0.1
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 1.1.1.1
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 127.0.0.1
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 192.168.0.1
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 192.168.0.197
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 208.67.222.222
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 255.255.255.255
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 8.8.4.4
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 8.8.8.8
+11:52:56 | IoT-Shield.Detector    | INFO    |    ├── 9.9.9.9
+11:52:56 | IoT-Shield.Guard       | INFO    | ✅ AI Model yuklandi (v2.0 — False Positive Prevention)
+11:52:56 | IoT-Shield.Guard       | INFO    | 
+11:52:56 | IoT-Shield.Guard       | INFO    | 🚀 IoT-Shield Guard ishga tushmoqda...
+11:52:56 | IoT-Shield.Guard       | INFO    | ──────────────────────────────────────────────────
+11:52:56 | IoT-Shield.Bot         | INFO    | 🤖 Telegram Bot ishga tushdi
+11:52:56 | IoT-Shield.Bot         | INFO    |    Platforma: Windows
+11:52:56 | IoT-Shield.Bot         | INFO    |    Admin: True
+11:52:56 | aiogram.dispatcher     | INFO    | Start polling
+11:52:56 | aiogram.dispatcher     | INFO    | Run polling for bot @aniqlovchiaibot id=8789775060 - 'Aniqlovchi AI'
+11:52:57 | aiogram.event          | INFO    | Update id=625431063 is handled. Duration 334 ms by bot id=8789775060
+11:52:58 | IoT-Shield.Detector    | INFO    | 🛡️ Safe List: 18 ta faol ulanish qo'shildi
+11:52:58 | IoT-Shield.Detector    | INFO    | 
+11:52:58 | IoT-Shield.Detector    | INFO    | ╔══════════════════════════════════════════════════╗
+11:52:58 | IoT-Shield.Detector    | INFO    | ║  🧠 AI Detection Engine v2.0 — ishga tushdi      ║
+11:52:58 | IoT-Shield.Detector    | INFO    | ║  False Positive Prevention + Safe List            ║
+11:52:58 | IoT-Shield.Detector    | INFO    | ╚══════════════════════════════════════════════════╝
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Interface:       barcha
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Block Threshold: 95% (bloklash uchun)
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Alert Threshold: 70% (ogohlantirish)
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Min Pkt (block): 10
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Min Pkt (alert): 5
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Safe List:       29 ta IP
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Klasslar:        34
+11:52:58 | IoT-Shield.Detector    | INFO    |    ├── Debug Log:       A:\3. Dissertatsiya\AI Project\logs\debug_log.txt
+11:52:58 | IoT-Shield.Detector    | INFO    |    └── Bot:             ✅ Ulangan
+11:52:58 | IoT-Shield.Detector    | INFO    | 
+11:52:58 | IoT-Shield.Detector    | INFO    | 🔍 Tarmoq kuzatilmoqda... (Ctrl+C to'xtatish)
+11:52:58 | IoT-Shield.Detector    | INFO    | ───────────────────────────────────────────────────────
+11:53:04 | IoT-Shield.Bot         | INFO    | 🔍 Adaptive ARP Scan: ['192.168.0.0/24', '192.168.56.0/24']
+11:53:08 | IoT-Shield.Bot         | INFO    |    ├── 192.168.0.0/24: 15 qurilma topildi
+11:53:11 | IoT-Shield.Bot         | INFO    |    ├── 192.168.56.0/24: 0 qurilma topildi
+11:53:11 | aiogram.event          | INFO    | Update id=625431064 is handled. Duration 6837 ms by bot id=8789775060
+11:55:52 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 216.239.38.223  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 16
+11:58:18 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MITM-ARPSPOOFING               | IP: 192.168.0.200   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 18
+11:59:41 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.194   → 239.255.102.18  | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+11:59:48 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 19
+12:00:42 | aiogram.event          | INFO    | Update id=625431065 is handled. Duration 138 ms by bot id=8789775060
+12:00:56 | aiogram.event          | INFO    | Update id=625431066 is handled. Duration 154 ms by bot id=8789775060
+12:05:21 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.185   → 192.168.0.255   | Ishonch: 100.0% | Pkt: 24
+12:09:40 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.200   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+12:11:48 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 18
+12:14:49 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.158   → 239.192.152.143 | Ishonch: 100.0% | Pkt: 18
+12:15:50 | IoT-Shield.Bot         | INFO    | 🔍 Adaptive ARP Scan: ['192.168.0.0/24', '192.168.56.0/24']
+12:15:54 | IoT-Shield.Bot         | INFO    |    ├── 192.168.0.0/24: 16 qurilma topildi
+12:15:57 | IoT-Shield.Bot         | INFO    |    ├── 192.168.56.0/24: 0 qurilma topildi
+12:15:57 | aiogram.event          | INFO    | Update id=625431067 is handled. Duration 6961 ms by bot id=8789775060
+12:16:54 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.178.25.74   → 192.168.0.197   | Ishonch: 100.0% | Pkt: 16
+12:17:51 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-SLOWLORIS                 | IP: 192.168.0.158   → 239.192.152.143 | Ishonch: 100.0% | Pkt: 24
+12:18:22 | IoT-Shield.Bot         | INFO    | 🔍 Adaptive ARP Scan: ['192.168.0.0/24', '192.168.56.0/24']
+12:18:25 | IoT-Shield.Bot         | INFO    |    ├── 192.168.0.0/24: 15 qurilma topildi
+12:18:29 | IoT-Shield.Bot         | INFO    |    ├── 192.168.56.0/24: 0 qurilma topildi
+12:18:29 | aiogram.event          | INFO    | Update id=625431068 is handled. Duration 6891 ms by bot id=8789775060
+12:20:48 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MITM-ARPSPOOFING               | IP: 216.58.209.170  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 13
+12:20:52 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-RSTFINFLOOD               | IP: 192.168.0.158   → 239.192.152.143 | Ishonch: 100.0% | Pkt: 30
+12:23:32 | IoT-Shield.Bot         | INFO    | 🔍 Adaptive ARP Scan: ['192.168.0.0/24', '192.168.56.0/24']
+12:23:35 | IoT-Shield.Bot         | INFO    |    ├── 192.168.0.0/24: 17 qurilma topildi
+12:23:38 | IoT-Shield.Bot         | INFO    |    ├── 192.168.56.0/24: 0 qurilma topildi
+12:23:39 | aiogram.event          | INFO    | Update id=625431069 is handled. Duration 7036 ms by bot id=8789775060
+12:26:55 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.158   → 239.192.152.143 | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+12:31:49 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 87.250.251.20   → 192.168.0.197   | Ishonch: 100.0% | Pkt: 25
+12:33:28 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.180   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 19
+12:35:06 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 14
+12:36:29 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 15
+12:37:08 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.184   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 16
+12:37:49 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.155   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 14
+12:39:02 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.187   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+12:39:58 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.185   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 29
+12:41:30 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.155   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 20
+12:41:50 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.158   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 15
+12:42:05 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MITM-ARPSPOOFING               | IP: 192.168.0.185   → 224.0.0.252     | Ishonch: 100.0% | Pkt: 17
+12:44:27 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MITM-ARPSPOOFING               | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 18
+12:45:29 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 192.168.0.183   → 224.0.0.22      | Ishonch: 100.0% | Pkt: 21
+12:45:39 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | DDOS-PSHACK_FLOOD              | IP: 77.88.44.55     → 192.168.0.197   | Ishonch: 100.0% | Pkt: 20
+12:47:01 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.193   → 255.255.255.255 | Ishonch: 100.0% | Pkt: 15
+12:47:47 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+12:47:59 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.159   → 192.168.0.255   | Ishonch: 100.0% | Pkt: 16
+12:50:11 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.199   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+12:50:12 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | MITM-ARPSPOOFING               | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 94.0% | Pkt: 17 | Bloklash: YO'Q (threshold ostida)
+12:53:14 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MITM-ARPSPOOFING               | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 14
+12:54:48 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.184   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 18
+12:57:02 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 17
+12:59:24 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-PSHACK_FLOOD              | IP: 216.58.209.170  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 20
+13:00:18 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.155   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 17
+13:01:55 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | VULNERABILITYSCAN              | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 10
+13:02:21 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.188   → 224.0.0.22      | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+13:05:26 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.193   → 255.255.255.255 | Ishonch: 100.0% | Pkt: 31
+13:07:10 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.186   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 34
+13:07:22 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:07:24 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 17
+13:08:03 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.188   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:08:28 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.184   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 34
+13:09:08 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | DDOS-PSHACK_FLOOD              | IP: 216.58.209.170  → 192.168.0.197   | Ishonch: 100.0% | Pkt: 14
+13:09:34 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 31
+13:10:10 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.199   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 35
+13:10:12 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 31
+13:11:16 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 31
+13:11:27 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 14
+13:11:41 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 29
+13:12:08 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.184   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 33
+13:12:23 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.188   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 34
+13:12:27 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 15
+13:13:15 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:14:20 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 37
+13:14:32 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 32
+13:15:11 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.193   → 255.255.255.255 | Ishonch: 100.0% | Pkt: 37
+13:16:30 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 29
+13:17:35 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 42
+13:18:11 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 33
+13:18:26 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:19:10 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.186   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 18
+13:19:31 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 15
+13:19:57 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.185   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 29
+13:20:43 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 16
+13:21:27 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:22:19 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 36
+13:22:29 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 239.255.255.250 | Ishonch: 100.0% | Pkt: 18
+13:22:38 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 26
+13:22:46 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:23:25 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.176   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 29
+13:23:51 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 36
+13:24:57 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 32
+13:25:10 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.169   → 192.168.0.255   | Ishonch: 100.0% | Pkt: 30
+13:25:34 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 38
+13:26:26 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 36
+13:28:12 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:28:49 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 33
+13:29:40 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:30:56 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 15
+13:31:49 | IoT-Shield.Detector    | WARNING | ⚠️ ALERT | VULNERABILITYSCAN              | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 9 | Bloklash: YO'Q (threshold ostida)
+13:32:18 | IoT-Shield.Detector    | WARNING | 🔒 HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.178   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:32:30 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 36
+13:32:42 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 30
+13:33:48 | aiogram.event          | INFO    | Update id=625431070 is handled. Duration 139 ms by bot id=8789775060
+13:34:14 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.191   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 34
+13:35:05 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.178   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 49
+13:35:19 | IoT-Shield.Detector    | WARNING | ⚠️ HUJUM | MIRAI-UDPPLAIN                 | IP: 192.168.0.199   → 224.0.0.251     | Ishonch: 100.0% | Pkt: 36
+13:35:31 | aiogram.dispatcher     | INFO    | Polling stopped
+13:35:31 | IoT-Shield.Detector    | INFO    | 
+13:35:31 | IoT-Shield.Detector    | INFO    | 🛑 Detection Engine to'xtatildi
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── Jami paketlar:      78,428
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── Bashoratlar:        3,313
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── Hujumlar:           89
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── Bloklangan:         21
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── Alertlar:           9
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── FP saqlangan:       3218
+13:35:31 | IoT-Shield.Detector    | INFO    |    ├── Safe list skip:     1885
+13:35:31 | IoT-Shield.Detector    | INFO    |    └── Debug log:          A:\3. Dissertatsiya\AI Project\logs\debug_log.txt
+13:35:31 | IoT-Shield.Guard       | INFO    | 🛑 IoT-Shield Guard to'xtatildi
+13:35:31 | aiogram.dispatcher     | INFO    | Polling stopped for bot @aniqlovchiaibot id=8789775060 - 'Aniqlovchi AI'
