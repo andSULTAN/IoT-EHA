@@ -30,6 +30,8 @@ from typing import Optional, Set
 import numpy as np
 import joblib
 
+from feature_engineering import add_derived_features_np, DERIVED_FEATURES, FEATURE_ENG_VERSION
+
 try:
     from scapy.all import (
         sniff, IP, TCP, UDP, ICMP, ARP, Ether, Raw, conf
@@ -393,10 +395,30 @@ def find_latest_model(models_dir: str) -> dict:
 def load_model(models_dir: str) -> tuple:
     """Model, scaler, encoder yuklab berish."""
     paths = find_latest_model(models_dir)
+    
+    meta = paths["metadata"]
+
+    # Feature engineering version check
+    model_fe_version = meta.get("feature_eng_version", "unknown")
+    if model_fe_version != FEATURE_ENG_VERSION:
+        logger.warning(
+            f"⚠️ Feature engineering version mismatch!\n"
+            f"   Model trained with: {model_fe_version}\n"
+            f"   Current code: {FEATURE_ENG_VERSION}\n"
+            f"   Please retrain the model!"
+        )
 
     logger.info("📦 Model yuklanmoqda...")
-    model = joblib.load(paths["pkl"])
-    logger.info(f"   ├── Model: {os.path.basename(paths['pkl'])}")
+    model_file = os.path.basename(paths["pkl"])
+    
+    if "ensemble" in model_file.lower():
+        from ensemble import IncrementalEnsemble
+        model = IncrementalEnsemble.load(paths["pkl"])
+        logger.info(f"   ├── Ensemble model: {model_file}")
+        logger.info(f"   ├── Komponentlar: {', '.join(model.models.keys())}")
+    else:
+        model = joblib.load(paths["pkl"])
+        logger.info(f"   ├── Model: {model_file}")
 
     scaler = joblib.load(paths["scaler"])
     logger.info(f"   ├── Scaler: {os.path.basename(paths['scaler'])}")
@@ -404,7 +426,6 @@ def load_model(models_dir: str) -> tuple:
     encoder = joblib.load(paths["label_encoder"])
     logger.info(f"   ├── Encoder: {os.path.basename(paths['label_encoder'])}")
 
-    meta = paths["metadata"]
     logger.info(f"   ├── Klasslar: {meta['n_classes']}")
     logger.info(f"   ├── Features: {meta['n_features']}")
     logger.info(f"   └── O'qitilgan: {meta.get('total_rows', '?'):,} qator")
@@ -767,7 +788,8 @@ class DetectionEngine:
                 return  # Hech narsa qilmaslik
 
             # ── 2. Model bashorat ──
-            X = features.reshape(1, -1)
+            features_extended = add_derived_features_np(features, FEATURE_ORDER)
+            X = features_extended.reshape(1, -1)
             X_scaled = self.scaler.transform(X).astype(np.float32)
             prediction = self.model.predict(X_scaled)[0]
             label = self.encoder.inverse_transform([prediction])[0]

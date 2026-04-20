@@ -1,4 +1,18 @@
 """
+═══════════════════════════════════════════════════════════════════════
+⚠️  XAVFSIZLIK OGOHLANTIRISHI:
+═══════════════════════════════════════════════════════════════════════
+Agar ilgari BOT_TOKEN kodda ochiq yozilgan bo'lsa va kod git ga
+yuborilgan bo'lsa — HOZIROQ eski tokenni @BotFather orqali
+bekor qiling va yangisini yarating!
+
+Yangi tokenni yaratish:
+  1. Telegram da @BotFather ga yozing
+  2. /mybots → botni tanlang → API Token → Revoke current token
+  3. Yangi token → .env fayliga qo'ying
+═══════════════════════════════════════════════════════════════════════
+"""
+"""
 IoT-Shield Guard — Telegram Bot Module
 ========================================
 aiogram 3.x asosida Telegram Bot.
@@ -35,10 +49,38 @@ from aiogram.enums import ParseMode
 from aiogram.client.default import DefaultBotProperties
 
 # ═══════════════════════════════════════════════════════════
+# SECURE TOKEN MANAGEMENT
+# ═══════════════════════════════════════════════════════════
+
+# Try loading from .env file first (development convenience)
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+except ImportError:
+    pass  # python-dotenv optional
+
+BOT_TOKEN = os.environ.get("IOT_SHIELD_BOT_TOKEN")
+
+if not BOT_TOKEN:
+    raise RuntimeError(
+        "\n"
+        "❌ IOT_SHIELD_BOT_TOKEN muhit o'zgaruvchisi sozlanmagan!\n"
+        "\n"
+        "Yechim:\n"
+        "  1. .env fayl yarating va quyidagini qo'shing:\n"
+        "     IOT_SHIELD_BOT_TOKEN=your_token_here\n"
+        "\n"
+        "  2. Yoki terminalda export qiling:\n"
+        "     export IOT_SHIELD_BOT_TOKEN='your_token_here'   (Linux/Mac)\n"
+        "     set IOT_SHIELD_BOT_TOKEN=your_token_here         (Windows)\n"
+        "\n"
+        "  3. Tokenni @BotFather dan oling: https://t.me/BotFather\n"
+    )
+
+# ═══════════════════════════════════════════════════════════
 # KONFIGURATSIYA
 # ═══════════════════════════════════════════════════════════
 
-BOT_TOKEN = "8789775060:AAF8UmdufcsJFCfwJkudz8LV9n5Cz4So_ag"
 IS_WINDOWS = platform.system() == "Windows"
 IS_LINUX = platform.system() == "Linux"
 
