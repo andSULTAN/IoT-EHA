@@ -11,7 +11,7 @@ learning pipeline is preserved.
 import numpy as np
 import joblib
 from typing import List, Dict, Tuple, Any, Optional
-from sklearn.linear_model import SGDClassifier, PassiveAggressiveClassifier
+from sklearn.linear_model import SGDClassifier
 from sklearn.utils.class_weight import compute_sample_weight
 
 
@@ -66,13 +66,15 @@ class IncrementalEnsemble:
                 random_state=123,
                 n_jobs=-1,
             ),
-            "passive_aggressive": PassiveAggressiveClassifier(
-                C=0.1,
+            "passive_aggressive": SGDClassifier(
+                loss='hinge',
+                penalty=None,
+                learning_rate='pa1',
+                eta0=1.0,
                 max_iter=1,
                 tol=None,
                 random_state=456,
                 n_jobs=-1,
-                loss='hinge',
             ),
         }
         # Equal weights initially; can be tuned later on validation set
@@ -87,9 +89,14 @@ class IncrementalEnsemble:
         sample_weight: Optional[np.ndarray] = None,
     ):
         """Fit all models on a chunk."""
+        import inspect
         for name, model in self.models.items():
             try:
-                if sample_weight is not None:
+                # Check if partial_fit accepts sample_weight
+                sig = inspect.signature(model.partial_fit)
+                supports_sample_weight = 'sample_weight' in sig.parameters
+
+                if sample_weight is not None and supports_sample_weight:
                     model.partial_fit(X, y, classes=classes, sample_weight=sample_weight)
                 else:
                     model.partial_fit(X, y, classes=classes)

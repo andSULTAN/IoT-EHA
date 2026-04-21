@@ -1,0 +1,33 @@
+
+PROJECT LOG: IoT-Shield AI NIDS (Network Intrusion Detection System)
+DATE: 2026-04-17
+USER: Master's Student, Computer Engineering (Andijan, Uzbekistan)
+
+1. DATASET ANALYSIS
+- Source: CICIOT2023 (Canadian Institute for Cybersecurity).
+- Scope: 33 types of IoT attacks (DDoS, MITM-ARP, Brute Force, Mirai, etc.).
+- Parameters: 39 network features (Header Length, Rate, TTL, TCP Flags, etc.).
+
+2. MODEL TRAINING (INCREMENTAL LEARNING)
+- Algorithm: SGDClassifier (Scikit-learn).
+- Data Volume: 45,019,243 rows processed (8.66 GB).
+- Method: Partial fit (Incremental learning) to handle large data on 24GB RAM.
+- Results: Accuracy: 74.86%, Precision: 74.66%, F1-Score: 72.40%.
+- Model Files: iot_shield_sgd.pkl, scaler.pkl, label_encoder.pkl.
+
+3. SOFTWARE ARCHITECTURE
+- Main Controller (guard.py): Manages systemd services and process initialization.
+- Detection Engine (detector.py): Real-time sniffing (Scapy) and AI prediction.
+- Bot Handler (bot_handler.py): Telegram interface (@aniqlovchiaibot) with /scan, /block, /unblock commands.
+
+4. DEPLOYMENT & HARDWARE
+- Platform: Orange Pi 3 LTS.
+- OS: Ubuntu Server (Jammy Jellyfish) on 32GB MicroSD.
+- Environment: Python 3.x Virtual Environment (venv).
+- Integration: Running as a systemd service (root access) for live network monitoring.
+- Firewall: Iptables integration for automatic mitigation (blocking attacker IPs).
+
+5. CURRENT STATUS
+- System is fully deployed on Orange Pi.
+- Bot is active and sending notifications for detected attacks (e.g., MITM-ARPSPOOFING).
+- Next Phase: Optimizing False Positives and final dissertation documentation.
