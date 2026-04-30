@@ -30,6 +30,59 @@ CICIOT2023_FEATURES = [
 
 KNOWN_LABEL_COLUMNS = ["label", "Label", "LABEL", "class", "Class", "attack", "Attack", "category"]
 
+# ═══ CLASS GROUPING: 34 sinf → 16 guruh ═══
+# O'xshash hujum turlarini birlashtirish — chiziqli model uchun ajratish osonlashadi.
+# Kalit: CICIOT2023 CSV dagi asl sinf nomi (case-sensitive).
+CLASS_GROUPING: Dict[str, str] = {
+    "BENIGN":                   "BENIGN",
+    # Malware
+    "BACKDOOR_MALWARE":         "MALWARE",
+    # Web hujumlari (juda kam namuna — birlashtirish kerak)
+    "BROWSERHIJACKING":         "WEB_ATTACK",
+    "COMMANDINJECTION":         "WEB_ATTACK",
+    "SQLINJECTION":             "WEB_ATTACK",
+    "XSS":                      "WEB_ATTACK",
+    "UPLOADING_ATTACK":         "WEB_ATTACK",
+    # Fragmentation
+    "DDOS-ACK_FRAGMENTATION":   "FRAGMENTATION_ATTACK",
+    "DDOS-ICMP_FRAGMENTATION":  "FRAGMENTATION_ATTACK",
+    "DDOS-UDP_FRAGMENTATION":   "FRAGMENTATION_ATTACK",
+    # HTTP Flood
+    "DDOS-HTTP_FLOOD":          "HTTP_FLOOD_ATTACK",
+    "DOS-HTTP_FLOOD":           "HTTP_FLOOD_ATTACK",
+    # ICMP va PSH+ACK — alohida, F1≈99%
+    "DDOS-ICMP_FLOOD":          "DDOS-ICMP_FLOOD",
+    "DDOS-PSHACK_FLOOD":        "DDOS-PSHACK_FLOOD",
+    "DDOS-RSTFINFLOOD":         "DDOS-RSTFINFLOOD",
+    # Slowloris
+    "DDOS-SLOWLORIS":           "SLOWLORIS_ATTACK",
+    # SYN Flood — DDoS/DoS variantlari birlashtirildi (asosiy chalkashlik manba'i)
+    "DDOS-SYN_FLOOD":           "SYN_FLOOD_ATTACK",
+    "DDOS-SYNONYMOUSIP_FLOOD":  "SYN_FLOOD_ATTACK",
+    "DOS-SYN_FLOOD":            "SYN_FLOOD_ATTACK",
+    # TCP Flood
+    "DDOS-TCP_FLOOD":           "TCP_FLOOD_ATTACK",
+    "DOS-TCP_FLOOD":            "TCP_FLOOD_ATTACK",
+    # UDP Flood
+    "DDOS-UDP_FLOOD":           "UDP_FLOOD_ATTACK",
+    "DOS-UDP_FLOOD":            "UDP_FLOOD_ATTACK",
+    # Brute force
+    "DICTIONARYBRUTEFORCE":     "BRUTE_FORCE",
+    # Spoofing
+    "DNS_SPOOFING":             "SPOOFING",
+    "MITM-ARPSPOOFING":         "SPOOFING",
+    # Mirai botnet
+    "MIRAI-GREETH_FLOOD":       "MIRAI_BOTNET",
+    "MIRAI-GREIP_FLOOD":        "MIRAI_BOTNET",
+    "MIRAI-UDPPLAIN":           "MIRAI_BOTNET",
+    # Reconnaissance
+    "RECON-HOSTDISCOVERY":      "RECONNAISSANCE",
+    "RECON-OSSCAN":             "RECONNAISSANCE",
+    "RECON-PINGSWEEP":          "RECONNAISSANCE",
+    "RECON-PORTSCAN":           "RECONNAISSANCE",
+    "VULNERABILITYSCAN":        "RECONNAISSANCE",
+}
+
 
 class DataValidationError(Exception):
     pass
@@ -65,6 +118,7 @@ class DataLoader:
         self.scaler: Optional[StandardScaler] = None
         self.class_names: List[str] = []
         self.total_rows: int = 0
+        self.use_grouping: bool = True
 
     def clear_all(self):
         """Barcha yuklangan ma'lumotlarni tozalash."""
@@ -212,6 +266,11 @@ class DataLoader:
                 if log_callback:
                     log_callback(f"   ⚠️ {os.path.basename(fp)}: {e}")
 
+        if self.use_grouping:
+            all_classes = {CLASS_GROUPING.get(c, c) for c in all_classes}
+            if log_callback:
+                log_callback(f"   ├── 🗂️  Grouping yoqilgan: {len(all_classes)} ta guruh")
+
         self.class_names = sorted(list(all_classes))
 
         # LabelEncoder yaratish
@@ -338,15 +397,19 @@ class DataLoader:
             
             X = downcast_dataframe(X)
 
-            # Label data — noma'lum labellarni filtrlash
+            # Label data — grouping va filtrlash
             raw_labels = chunk[self.label_column].astype(str)
-            known_mask = raw_labels.isin(self.class_names)
+            if self.use_grouping:
+                effective_labels = raw_labels.map(lambda x: CLASS_GROUPING.get(x, x))
+            else:
+                effective_labels = raw_labels
+            known_mask = effective_labels.isin(self.class_names)
 
             if known_mask.sum() == 0:
                 continue
 
             X = X[known_mask]
-            y = self.label_encoder.transform(raw_labels[known_mask])
+            y = self.label_encoder.transform(effective_labels[known_mask])
 
             # StandardScaler transform
             X_scaled = self.scaler.transform(X.values).astype(np.float32)
@@ -544,17 +607,26 @@ class DataLoader:
                     continue
 
                 raw_labels = df[self.label_column].astype(str)
-                known_mask = raw_labels.isin(self.class_names)
-                df = df[known_mask]
+                if self.use_grouping:
+                    eff_labels = raw_labels.map(lambda x: CLASS_GROUPING.get(x, x))
+                else:
+                    eff_labels = raw_labels
+
+                known_mask = eff_labels.isin(self.class_names)
+                df = df[known_mask].copy()
+                eff_labels = eff_labels[known_mask]
 
                 if len(df) == 0:
                     continue
 
+                # _effective_label ustuni orqali guruh bo'yicha filtrlash
+                df['_effective_label'] = eff_labels.values
+
                 kept_rows = []
-                for cls in df[self.label_column].unique():
+                for cls in df['_effective_label'].unique():
                     if samples_per_class[cls] >= max_rows_per_class:
                         continue
-                    cls_rows = df[df[self.label_column] == cls]
+                    cls_rows = df[df['_effective_label'] == cls]
                     remaining = max_rows_per_class - samples_per_class[cls]
                     to_take = min(len(cls_rows), remaining)
                     kept_rows.append(cls_rows.head(to_take))
@@ -570,9 +642,7 @@ class DataLoader:
                 X = add_derived_features_df(X)
                 X = downcast_dataframe(X)
 
-                y = self.label_encoder.transform(
-                    df_kept[self.label_column].astype(str)
-                )
+                y = self.label_encoder.transform(df_kept['_effective_label'])
 
                 X_scaled = self.scaler.transform(X.values).astype(np.float32)
 

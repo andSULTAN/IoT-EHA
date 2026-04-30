@@ -66,19 +66,17 @@ class IncrementalEnsemble:
                 random_state=123,
                 n_jobs=-1,
             ),
-            "passive_aggressive": SGDClassifier(
-                loss='hinge',
-                penalty=None,
-                learning_rate='pa1',
-                eta0=1.0,
+            "sgd_pa": SGDClassifier(
+                loss='modified_huber',
+                penalty='l1',
+                alpha=5e-5,
                 max_iter=1,
                 tol=None,
                 random_state=456,
                 n_jobs=-1,
             ),
         }
-        # Equal weights initially; can be tuned later on validation set
-        weights = {"sgd_mhuber": 1.0, "sgd_log": 1.0, "passive_aggressive": 0.8}
+        weights = {"sgd_mhuber": 1.0, "sgd_log": 1.0, "sgd_pa": 0.8}
         return cls(models, weights)
 
     def partial_fit(

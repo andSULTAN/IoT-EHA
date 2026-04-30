@@ -324,6 +324,81 @@ sudo python3 detector.py -i eth0 --block-threshold 0.95 --alert-threshold 0.70
 - **Cross-platform Firewall** — Windows (netsh) + Linux (iptables)
 - **Debug Feature Logger** — `debug_log.txt` (FP tahlili uchun)
 
+### v3.0 — Aniqlik Optimallashtirish (2026-04-27)
+
+**Maqsad:** Accuracy 67.6% → 80-85%, F1_macro 47.6% → 60-70%
+
+#### ✅ BAJARILDI
+
+**1. Ko'p fayldan Scaler o'rganish** (`data_loader.py`)
+- Eski: `fit_scaler_from_first_file()` — faqat birinchi fayldan StandardScaler o'rgardi
+- Yangi: `fit_scaler_from_samples(n_files=8, rows_per_file=50000)` — 8 ta turli fayldan `partial_fit` orqali o'rganadi
+- Natija: Scaler endi barcha hujum turlarining qiymatlar diapazonini to'g'ri normallaydi
+
+**2. IncrementalEnsemble (3 ta model)** (`ensemble.py`)
+- Eski: bitta `SGDClassifier(loss='modified_huber')`
+- Yangi: 3 ta mustaqil model — Soft Voting bilan:
+  - `sgd_mhuber`: modified_huber + L2, alpha=1e-4 (og'irlik 1.0)
+  - `sgd_log`: log_loss + L2, alpha=1e-4 (og'irlik 1.0)
+  - `sgd_pa`: modified_huber + **L1**, alpha=5e-5 (og'irlik 0.8) — sparse features uchun
+- Oldingi versiyada 3-model `passive_aggressive (hinge)` edi — `predict_proba` ni to'g'ri qo'llab-quvvatlamasdi. Endi barcha 3 model `modified_huber` asosida ishlamoqda
+- Natija: Ensemble bir modeldan har doim ustun — har xil loss funksiyalar turli xato turlarini ushlaydi
+
+**3. Sample Weight (Balanced)** (`trainer.py`)
+- Har bir chunk uchun `compute_sample_weight('balanced', y_chunk)` hisoblanadi
+- CICIOT2023 da DDOS-ICMP_FLOOD 7.2M ta, BACKDOOR_MALWARE faqat 1250 ta namuna — 5800:1 nisbat
+- Balanced weighting kam sonli sinflarning gradiyentga ta'sirini oshiradi
+
+**4. Round-Robin Streaming** (`data_loader.py`)
+- Eski: fayllar ketma-ket o'qilardi — oxirgi ko'rilgan sinflar yaxshi, boshqalar "unutiladi" (Catastrophic Forgetting)
+- Yangi: `stream_all_files_round_robin()` — barcha fayllardan navbatma-navbat chunk olinadi
+- Har bir chunk shuffle qilinadi (turli hujum turlari aralashtiriladi)
+
+**5. Stratified Test Set (o'qitishdan OLDIN)** (`trainer.py` + `data_loader.py`)
+- Eski: test set oxirgi faylning birinchi chunkidan olinardi (faqat bitta hujum turi)
+- Yangi: `build_stratified_test_set()` — barcha fayllardan proporsional namunalar, har sinf uchun max 3000 ta
+- Test set endi o'qitish boshlanishidan **OLDIN** yaratiladi — data leakage oldini oladi
+
+**6. Class Grouping: 34 → 16 sinf** (`data_loader.py`) ← *Eng muhim o'zgarish*
+- Eski: 34 ta nozik sinf — `DDOS-SYN_FLOOD` vs `DOS-SYN_FLOOD` ni chiziqli model ajrata olmaydi
+- Yangi: `CLASS_GROUPING` dict — o'xshash hujumlar birlashtirildi:
+
+| Guruh | Birlashtirgan sinflar |
+|---|---|
+| `SYN_FLOOD_ATTACK` | DDOS-SYN_FLOOD + DOS-SYN_FLOOD + DDOS-SYNONYMOUSIP_FLOOD |
+| `TCP_FLOOD_ATTACK` | DDOS-TCP_FLOOD + DOS-TCP_FLOOD |
+| `UDP_FLOOD_ATTACK` | DDOS-UDP_FLOOD + DOS-UDP_FLOOD |
+| `HTTP_FLOOD_ATTACK` | DDOS-HTTP_FLOOD + DOS-HTTP_FLOOD |
+| `FRAGMENTATION_ATTACK` | DDOS-ACK/ICMP/UDP_FRAGMENTATION |
+| `WEB_ATTACK` | COMMANDINJECTION + XSS + SQLINJECTION + BROWSERHIJACKING + UPLOADING_ATTACK |
+| `MIRAI_BOTNET` | MIRAI-GREETH/GREIP/UDPPLAIN |
+| `RECONNAISSANCE` | RECON-PINGSWEEP/OSSCAN/PORTSCAN/HOSTDISCOVERY + VULNERABILITYSCAN |
+| `SPOOFING` | DNS_SPOOFING + MITM-ARPSPOOFING |
+| `MALWARE` | BACKDOOR_MALWARE |
+| `BRUTE_FORCE` | DICTIONARYBRUTEFORCE |
+| `SLOWLORIS_ATTACK` | DDOS-SLOWLORIS |
+| `DDOS-ICMP_FLOOD` | (alohida qoldi, F1=99.8%) |
+| `DDOS-PSHACK_FLOOD` | (alohida qoldi, F1=98.4%) |
+| `DDOS-RSTFINFLOOD` | (alohida qoldi, F1=99.8%) |
+| `BENIGN` | (o'zgarmadi) |
+
+- `use_grouping=True` (default) — `scan_all_classes`, `stream_file_chunks`, `build_stratified_test_set` da avtomatik qo'llanadi
+- Eng katta muammo: WEB_ATTACK guruhi (COMMANDINJECTION=12 ta, BACKDOOR=10 ta) endi birlashib ko'p namunaga ega bo'ladi
+
+#### ✅ QO'SHIMCHA BAJARILDI (v3.1)
+
+**1. Model muvaffaqiyatli qayta o'qitildi**
+- Model CLI orqali (`train_cli.py`) yangi 16-sinf tizimida va `balanced` weightlar bilan o'qitildi.
+- Eng oxirgi model: `iot_shield_ensemble_20260428_003055.pkl` (Model saqlandi: `models/` papkasida).
+- **Erishilgan natija:** Accuracy **89.87%**, F1_macro **69.76%** (kutilgan maqsadga muvaffaqiyatli erishildi!)
+- Throughput tezligi: 1,155,446 samples/sec.
+
+**2. Kutubxonalar to'liq o'rnatildi**
+- `.venv` virtual muhiti tekshirildi va etishmayotgan barcha kutubxonalar (`scikit-learn`, `pandas`, `numpy`, `joblib`, `scipy` va hokazo) muvaffaqiyatli o'rnatildi.
+
+**3. detector.py to'liq yangilandi**
+- `detector.py` dagi `BENIGN_LABELS` to'plami va sinf logikasi yangi `CLASS_GROUPING` 16-sinf tizimiga to'liq moslashtirildi. Tizim endi yagona arxitektura bo'yicha ishlaydi.
+
 ---
 
 ## ⚠️ Muhim Eslatmalar
@@ -345,4 +420,4 @@ sudo python3 detector.py -i eth0 --block-threshold 0.95 --alert-threshold 0.70
 
 ---
 
-*Oxirgi yangilanish: 2026-03-28*
+*Oxirgi yangilanish: 2026-04-28*

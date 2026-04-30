@@ -87,8 +87,10 @@ class TrainerThread(QThread):
             self.log_message.emit("📋 1-BOSQICH: Klasslarni aniqlash")
             self.log_message.emit("─" * 40)
 
+            dl.use_grouping = True
             dl.scan_all_classes(log_callback=self._emit_log)
             all_classes_encoded = dl.label_encoder.transform(dl.class_names)
+            self.log_message.emit(f"   ├── 🗂️  Class grouping: 34 → {len(dl.class_names)} sinf")
             self.progress_updated.emit(5)
 
             if self._is_cancelled:
@@ -105,6 +107,21 @@ class TrainerThread(QThread):
                 log_callback=self._emit_log
             )
             self.progress_updated.emit(8)
+
+            if self._is_cancelled:
+                return self._cancel()
+
+            # ═══ 2.75. STRATIFIED TEST SET (o'qitishdan OLDIN — data leakage oldini olish) ═══
+            self.log_message.emit("\n" + "─" * 40)
+            self.log_message.emit("🎯 3-BOSQICH: Stratified test set yaratilmoqda (o'qitishdan oldin)")
+            self.log_message.emit("─" * 40)
+
+            test_X, test_y = dl.build_stratified_test_set(
+                rows_per_file=2000,
+                max_rows_per_class=3000,
+                log_callback=self._emit_log,
+            )
+            self.progress_updated.emit(10)
 
             if self._is_cancelled:
                 return self._cancel()
@@ -166,8 +183,6 @@ class TrainerThread(QThread):
             # ═══ 4. INCREMENTAL O'QITISH ═══
             total_samples_trained = 0
             per_file_accuracy = []
-            test_X = None
-            test_y = None
             training_progress_base = 10  # 10% dan boshlaymiz
             training_progress_range = 80  # 80% gacha o'qitish
 
@@ -239,17 +254,6 @@ class TrainerThread(QThread):
 
             if self._is_cancelled:
                 return self._cancel()
-
-            # === Build stratified test set ===
-            self.log_message.emit("\n" + "─" * 40)
-            self.log_message.emit("🎯 Stratified test set yaratilmoqda...")
-            self.log_message.emit("─" * 40)
-
-            test_X, test_y = dl.build_stratified_test_set(
-                rows_per_file=2000,
-                max_rows_per_class=3000,
-                log_callback=self._emit_log,
-            )
 
             # ═══ 5. BAHOLASH (RIGOROUS) ═══
             self.log_message.emit("\n" + "─" * 40)

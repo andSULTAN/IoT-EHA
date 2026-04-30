@@ -31,6 +31,7 @@ import numpy as np
 import joblib
 
 from feature_engineering import add_derived_features_np, DERIVED_FEATURES, FEATURE_ENG_VERSION
+from data_loader import CLASS_GROUPING
 
 try:
     from scapy.all import (
@@ -72,7 +73,11 @@ FEATURE_ORDER = [
     "rst_flag_number", "syn_count", "syn_flag_number",
 ]
 
-BENIGN_LABELS = {"BENIGN", "Normal", "normal", "benign"}
+BENIGN_LABELS = {"BENIGN", "Normal", "normal", "benign", "BenignTraffic"}
+
+# Yangi 16-sinf class grouping tizimidagi hamma guruh nomlari
+# (detector metadata dan olinadigan class_names bilan moslashtirish uchun)
+GROUPED_CLASS_NAMES = set(CLASS_GROUPING.values())
 
 logger = logging.getLogger("IoT-Shield.Detector")
 
